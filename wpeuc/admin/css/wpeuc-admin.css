@@ -1,0 +1,26 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.wpeuc-notice {
+ 	padding: 10px;
+}
+
+.wpeuc_admin_table {
+	border-collapse: separate;
+    border-spacing: 0;
+    border-width: 1px 0 0 1px;
+    margin: 25px 0;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.wpeuc_admin_table, .wpeuc_admin_table th, .wpeuc_admin_table td {
+	border: 1px solid #d1d1d1;
+}
+
+.wpeuc-delete {
+	background-color: red;
+	color: #fff;
+}
