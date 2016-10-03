@@ -7,7 +7,7 @@
  	padding: 10px;
 }
 
-.wpeuc_admin_table {
+.wpeuc-admin-table {
 	border-collapse: separate;
     border-spacing: 0;
     border-width: 1px 0 0 1px;
@@ -16,11 +16,10 @@
     width: 100%;
 }
 
-.wpeuc_admin_table, .wpeuc_admin_table th, .wpeuc_admin_table td {
+.wpeuc-admin-table th, .wpeuc-admin-table td {
 	border: 1px solid #d1d1d1;
 }
 
-.wpeuc-delete {
-	background-color: red;
-	color: #fff;
-}
+/*.wpeuc-admin-table > tr > th, .wpeuc-admin-table > tr > td {
+	border: 1px solid #ddd;
+}*/

@@ -7,7 +7,6 @@
  *
  * @link       http://github.com/nicholaskajoh/wp-energy-usage-calculator
  * @since      0.1.0
- *
  * @package    WP Energy Usage Calculator
  */
 ?>
@@ -28,27 +27,24 @@
 	<?php do_settings_sections($this->settings_page); ?>
 	<?php submit_button(); ?>
 </form>
+<!-- #Calculator settings -->
 
-<h2>Import</h2>
-<p class="notice notice-info wpeuc-notice"> Feeling lazy? Import a ready-to-use list of appliances! Don't worry, you can edit them to suit your needs.</p>
-<p class="notice notice-warning wpeuc-notice"> Import should be carried out once. Multiple imports would make for repeated appliance data in your calculator.</p>
-<p><button class="button button-primary">Import</button></p>
-
+<!-- Appliances -->
 <h2>Appliances</h2>
 <p>Add appliance</p>
 <form method="post" action="">
 	<label>Appliance name: </label>
 	<input type="text" name="appliance_name" value="">
 	<label>Power Rating (Watts): </label>
-	<input type="number" name="power_rating" value="">
+	<input type="number" step="0.01" name="power_rating" value="">
 	<label>Average Daily Usage (Hours): </label>
-	<input type="number" name="average_daily_usage" value="">
+	<input type="number" step="0.01" name="average_daily_usage" value="">
 	<input class="button button-primary" name="add_appliance" type="submit" value="Add">
 </form>
 
 <?php $myAppliances = $this->get_appliances(); ?>
 
-<table class="wpeuc_admin_table">
+<table class="wpeuc-admin-table">
 	<tr>
 		<th>Appliance</th>
 		<th>Power Rating (Watts)</th>
@@ -66,11 +62,11 @@
 					</td>
 
 					<td>
-						<input type="number" name="power_rating" value="<?php echo $appliance->power_rating; ?>">
+						<input type="number" step="0.01" name="power_rating" value="<?php echo $appliance->power_rating; ?>">
 					</td>
 
 					<td>
-						<input type="number" name="average_daily_usage" value="<?php echo $appliance->average_daily_usage; ?>">
+						<input type="number" step="0.01" name="average_daily_usage" value="<?php echo $appliance->average_daily_usage; ?>">
 					</td>
 
 					<td>
@@ -85,3 +81,4 @@
 	}
 ?>
 </table>
+<!-- #Appliances -->

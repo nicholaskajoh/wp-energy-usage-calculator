@@ -1,0 +1,101 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+ .wpeuc-calc-container {
+
+ }
+
+ .wpeuc-calc-container input {
+ 	width: 100%;
+ }
+
+ .wpeuc-name {
+ 	font-size: 30px;
+ 	font-weight: bold;
+ 	text-align: center;
+ }
+
+ .wpeuc-desc {
+ 	text-align: center;
+ 	padding: 0 5%;
+ }
+
+ .wpeuc-alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.wpeuc-alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.wpeuc-calc-table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.wpeuc-calc-table > tr > th, .wpeuc-calc-table > tr > td {
+	border: 1px solid #ddd;
+}
+
+.wpeuc-calc-table > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+ #resultArea {
+ 	text-align: center;
+ }
+
+.wpeuc-calc-container .btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.wpeuc-calc-container .btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.wpeuc-calc-container .btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #122b40;
+}
+
+.wpeuc-calc-container .btn-primary:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.wpeuc-calc-container .btn-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
