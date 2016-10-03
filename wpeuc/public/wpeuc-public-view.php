@@ -25,6 +25,7 @@
 
 	<?php $myAppliances = $this->get_appliances(); // get all appliances in DB ?>
 
+	<!-- calculator table -->
 	<table id="wpeuc_table" class="wpeuc-calc-table">
 		<tr>
 			<th>Appliance</th>
@@ -32,41 +33,17 @@
 			<th>Average Daily Usage (Hours)</th>
 			<th>Quantity</th>
 		</tr>
-		<?php
-			$c = 1; // count 
-			foreach ($myAppliances as $appliance) {
-				echo "<tr>";
-				echo "<td>{$appliance->appliance_name}</td>";
-		?>
-				<td>
-					<div id="default_pr_<?php echo $c; ?>">
-						<span><?php echo $appliance->power_rating; ?></span> &nbsp;
-						(<a id="pr_<?php echo $c; ?>" href="javascript:void(0);">edit</a>)
-					</div>
-					<input type="number" step="0.01" id="custom_pr_<?php echo $c; ?>" value="<?php echo $appliance->power_rating; ?>">
-				</td>
-
-				<td>
-					<div id="default_adu_<?php echo $c; ?>">
-						<span><?php echo $appliance->average_daily_usage; ?></span> &nbsp;
-						(<a id="adu_<?php echo $c; ?>" href="javascript:void(0);">edit</a>)
-					</div>
-					<input type="number" step="0.01" id="custom_adu_<?php echo $c; ?>" value="<?php echo $appliance->average_daily_usage; ?>">
-				</td>
-
-				<td>
-					<input type="number" step="0.01" id="quantity_<?php echo $c; ?>" value="0">
-				</td>
-
-		<?php
-				echo "</tr>";
-				$c++;
-			}
-		?>
 	</table>
+	<button id="add_row" class="btn btn-success btn-sm">Add</button>
+	<button id="remove_row" class="btn btn-danger btn-sm">Remove</button>
 
 	<div id="resultArea">
-		<h1 id="result">0 KWH</h1>
+		<h1 id="result">0.00 kWh</h1>
 		<div><button id="calculate" class="btn btn-primary btn-lg">Calculate Energy Usage</button></div>
 	</div>
 </div>
+
+<!-- hand appliances over to js -->
+<script type="text/javascript">
+	var appliances_data = <?php echo json_encode($myAppliances); ?>
+</script>

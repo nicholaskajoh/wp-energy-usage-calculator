@@ -1,7 +1,16 @@
 /**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
+ * All of the CSS for your admin-specific functionality should be included in this file.
  */
+
+ .wpeuc-container {
+ 	padding: 20px 2.5%;
+ }
+
+ .wpeuc-container input[type="text"],
+ .wpeuc-container input[type="number"],
+ .wpeuc-container textarea {
+ 	width: 100%;
+ }
 
 .wpeuc-notice {
  	padding: 10px;
@@ -16,7 +25,8 @@
     width: 100%;
 }
 
-.wpeuc-admin-table th, .wpeuc-admin-table td {
+.wpeuc-admin-table th,
+.wpeuc-admin-table td {
 	border: 1px solid #d1d1d1;
 }
 

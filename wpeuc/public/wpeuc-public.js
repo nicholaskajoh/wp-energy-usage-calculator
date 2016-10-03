@@ -2,60 +2,95 @@
 	'use strict';
 
 	/**
-	 * All of the code for your public-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
+	 * All of the code for the public-facing JS source should reside in this file.
 	 */
 
-	// ENERGY USAGE CALCULATOR
-	var calc_table_rows = $('#wpeuc_table tr').length - 1; // -1 for header tr
+	var num_of_appliances = appliances_data.length; // from DB
+	var r_id = 0; // row identifier
 
-	// hide all inputs
-	for(var i = 1; i <= calc_table_rows; i++) {
-		$('#custom_pr_'+i).hide(); // power rating
-		$('#custom_adu_'+i).hide(); // average daily usage
-	};
+	// start
+	// add initial row
+	add_row();
 
-	// make a value editable
-	$('a').on('click', function() {
-		var id = $(this).attr("id");
-		$('#default_'+id).hide();
-		$('#custom_'+id).show();
+	// for subsequent rows
+	$('#add_row').on('click', function() {
+		add_row();
 	});
 
-	// total power consumption/energy usage
+	// remove row
+	$('#remove_row').on('click', function() {
+		remove_row();
+	});
+
+	// change values of power rating and average daily usage accordingly when appliance is changed
+	$('table.wpeuc-calc-table').on('change', 'select.form-control', function() {
+		var _id = $(this).attr('id');
+		var _val = $(this).val();
+
+		//	 adjust power rating and average daily usage
+		appliances_data.forEach(function(appl) {
+			if(appl.id == _val) {
+				$('#pr'+_id).val(appl.power_rating);
+				$('#adu'+_id).val(appl.average_daily_usage);
+			}
+		});
+	});
+
+	// calculate total energy consumption
 	$('#calculate').on('click', function() {
-		var total = 0;
-		for(var i = 1; i <= calc_table_rows; i++) {
-			var pr = parseFloat($('#custom_pr_'+i).val());
-			var adu = parseFloat($('#custom_adu_'+i).val());
-			var qty = parseFloat($('#quantity_'+i).val());
+		var num_calc_table_rows = $('#wpeuc_table tr').length - 1; // -1 for header tr
+		var total = 0; // kwh
+		// run through all the rows and compute energy for each; add to total
+		for(var i = 1; i <= num_calc_table_rows; i++) {
+			var pr = parseFloat($('#pr_'+i).val());
+			var adu = parseFloat($('#adu_'+i).val());
+			var qty = parseFloat($('#qty_'+i).val());
 			var e = (pr*adu*30*qty)/1000;
 			total += e;
 		};
-		$('#result').html(total+" KWH");
+		// result; to 2 dp
+		$('#result').html(total.toFixed(2) + " kWh");
 	});
+
+
+	/*
+	 * FUNCTIONS
+	 */
+
+	 // add a new row to the table
+	function add_row() {
+		r_id++; // for current row being created
+
+		// define a row of the calculator which holds info concerning a given appliance
+		var row = "";
+
+		// start tr
+		row += '<tr id="appl_' + r_id + '">';
+		// appliance select box
+		row += '<td><select id="_' + r_id + '" class="form-control">';
+		for(var i = 0; i < num_of_appliances; i++) {
+			row += '<option value="' + appliances_data[i].id + '">' + appliances_data[i].appliance_name + '</option>';
+		}
+		row += '</select></td>';
+		// power rating input
+		row += '<td><input id="pr_' + r_id + '" class="form-control" type="number" step="0.01" value="' + appliances_data[0].power_rating + '"></td>';
+		// average daily usage input
+		row += '<td><input id="adu_' + r_id + '" class="form-control" type="number" step="0.01" value="' + appliances_data[0].average_daily_usage + '"></td>';
+		// quantity input
+		row += '<td><input id="qty_' + r_id + '" class="form-control" type="number" step="1" value="0"></td>';
+		// end tr
+		row += '</tr>';
+
+		// add to calculator table
+		$('#wpeuc_table').append(row);
+	}
+
+	// remove the last row from the table
+	function remove_row() {
+		if(r_id > 1) { 
+			$('#appl_'+r_id).remove();
+			r_id--;
+		}
+	}
 
 })( jQuery );
