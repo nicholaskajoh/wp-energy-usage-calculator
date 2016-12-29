@@ -1,6 +1,6 @@
 ## WP Energy Usage Calculator Plugin
 
-A flexible plugin for calculating electricity usage/consumption.
+A WordPress plugin for calculating electricity usage/consumption.
 
 ### License
 
