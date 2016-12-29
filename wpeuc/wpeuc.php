@@ -41,11 +41,13 @@ register_uninstall_hook(__FILE__, array(new WPEUC, 'uninstall'));
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array(new WPEUC, 'add_action_links'));
 
 // public view
+add_action('wp_enqueue_scripts', array(new WPEUC, 'enqueue_general_static'));
 add_action('wp_enqueue_scripts', array(new WPEUC_Public, 'enqueue_public_static'));
 add_action('init', array(new WPEUC_Public, 'get_public_view'));
 
 // admin view
 if(is_admin()) {
+	add_action('admin_enqueue_scripts', array(new WPEUC, 'enqueue_general_static'));
 	add_action('admin_enqueue_scripts', array(new WPEUC_Admin, 'enqueue_admin_static'));
 	add_action( 'admin_menu', array(new WPEUC_Admin, 'get_admin_view'));
 	add_action('admin_init', array(new WPEUC_Admin, 'register_and_build_admin_settings'));

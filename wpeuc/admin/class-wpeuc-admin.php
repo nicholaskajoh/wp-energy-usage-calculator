@@ -51,7 +51,7 @@
 		 */
 		public function calc_name_option() {
 			$options =  get_option('wpeuc_options');
-			echo "<input name=\"wpeuc_options[calc_name]\" type=\"text\" value=\"{$options['calc_name']}\" />";
+			echo "<input class=\"form-control\" name=\"wpeuc_options[calc_name]\" type=\"text\" value=\"{$options['calc_name']}\" /><br>";
 		}
 
 		/**
@@ -59,7 +59,7 @@
 		 */
 		public function calc_desc_option() {
 			$options =  get_option('wpeuc_options');
-			echo "<textarea name=\"wpeuc_options[calc_desc]\">{$options['calc_desc']}</textarea>";
+			echo "<textarea class=\"form-control\" name=\"wpeuc_options[calc_desc]\">{$options['calc_desc']}</textarea><br>";
 		}
 
 		/**
@@ -67,7 +67,7 @@
 		 */
 		public function calc_instructions_option() {
 			$options =  get_option('wpeuc_options');
-			echo "<textarea name=\"wpeuc_options[calc_instructions]\">{$options['calc_instructions']}</textarea>";
+			echo "<textarea class=\"form-control\" name=\"wpeuc_options[calc_instructions]\">{$options['calc_instructions']}</textarea><br>";
 		}
 
 		/**
@@ -98,7 +98,7 @@
 					)
 				);
 
-				echo "<p class=\"notice notice-success wpeuc-notice\">New appliance successfully added!</p>";
+				echo "<p class=\"alert alert-success\">New appliance successfully added!</p>";
 			}
 		}
 
@@ -124,7 +124,7 @@
 					)
 				);
 
-				echo "<p class=\"notice notice-success wpeuc-notice\">Changes saved successfully!</p>";
+				echo "<p class=\"alert alert-success\">Changes saved successfully!</p>";
 			}
 		}
 
@@ -140,7 +140,7 @@
 					array('id' => $_POST['id'])
 				);
 
-				echo "<p class=\"notice notice-success wpeuc-notice\">Appliance deleted successfully!</p>";
+				echo "<p class=\"alert alert-success\">Appliance deleted successfully!</p>";
 			}
 		}
 

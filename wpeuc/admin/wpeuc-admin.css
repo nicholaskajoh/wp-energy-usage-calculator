@@ -1,35 +1,3 @@
 /**
- * All of the CSS for your admin-specific functionality should be included in this file.
+ * Admin CSS.
  */
-
- .wpeuc-container {
- 	padding: 20px 2.5%;
- }
-
- .wpeuc-container input[type="text"],
- .wpeuc-container input[type="number"],
- .wpeuc-container textarea {
- 	width: 100%;
- }
-
-.wpeuc-notice {
- 	padding: 10px;
-}
-
-.wpeuc-admin-table {
-	border-collapse: separate;
-    border-spacing: 0;
-    border-width: 1px 0 0 1px;
-    margin: 25px 0;
-    table-layout: fixed;
-    width: 100%;
-}
-
-.wpeuc-admin-table th,
-.wpeuc-admin-table td {
-	border: 1px solid #d1d1d1;
-}
-
-/*.wpeuc-admin-table > tr > th, .wpeuc-admin-table > tr > td {
-	border: 1px solid #ddd;
-}*/

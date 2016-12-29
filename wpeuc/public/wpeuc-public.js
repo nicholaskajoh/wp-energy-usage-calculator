@@ -1,9 +1,8 @@
-(function( $ ) {
+/**
+ * Public Js.
+ */
+(function($) {
 	'use strict';
-
-	/**
-	 * All of the code for the public-facing JS source should reside in this file.
-	 */
 
 	var num_of_appliances = appliances_data.length; // from DB
 	var r_id = 0; // row identifier
@@ -23,7 +22,7 @@
 	});
 
 	// change values of power rating and average daily usage accordingly when appliance is changed
-	$('table.wpeuc-calc-table').on('change', 'select.form-control', function() {
+	$('#wpeuc_table').on('change', 'select.form-control', function() {
 		var _id = $(this).attr('id');
 		var _val = $(this).val();
 
@@ -93,4 +92,4 @@
 		}
 	}
 
-})( jQuery );
+})(jQuery);

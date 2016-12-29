@@ -1,2 +1,2 @@
 # Changelog
-* (1 October 2016). Initial Release.
+* (29 December, 2016). Initial Release.
