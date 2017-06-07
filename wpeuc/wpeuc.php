@@ -47,8 +47,8 @@ add_action('init', array(new WPEUC_Public, 'get_public_view'));
 
 // admin view
 if(is_admin()) {
-	add_action('admin_enqueue_scripts', array(new WPEUC, 'enqueue_general_static'));
-	add_action('admin_enqueue_scripts', array(new WPEUC_Admin, 'enqueue_admin_static'));
-	add_action( 'admin_menu', array(new WPEUC_Admin, 'get_admin_view'));
-	add_action('admin_init', array(new WPEUC_Admin, 'register_and_build_admin_settings'));
+  add_action('admin_enqueue_scripts', array(new WPEUC, 'enqueue_general_static'));
+  add_action('admin_enqueue_scripts', array(new WPEUC_Admin, 'enqueue_admin_static'));
+  add_action( 'admin_menu', array(new WPEUC_Admin, 'get_admin_view'));
+  add_action('admin_init', array(new WPEUC_Admin, 'register_and_build_admin_settings'));
 }

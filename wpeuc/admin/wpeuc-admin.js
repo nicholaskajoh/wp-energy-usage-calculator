@@ -1,6 +1,7 @@
 /**
  * Admin Js.
  */
+ 
 (function($) {
 	'use strict';
 
