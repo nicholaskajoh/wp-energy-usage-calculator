@@ -38,5 +38,5 @@ None
 = 0.1.0 =
 * Initial release.
 
-= 0.1.1
+= 0.1.1 =
 * Refactored codebase for easier and faster development.

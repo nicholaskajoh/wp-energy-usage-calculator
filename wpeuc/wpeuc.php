@@ -11,7 +11,7 @@
  * Plugin Name:       WP Energy Usage Calculator
  * Plugin URI:        http://github.com/nicholaskajoh/wp-energy-usage-calculator
  * Description:       A flexible plugin for calculating electricity usage/consumption.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            Nicholas Kajoh
  * Author URI:        http://nicholask.me
  * License:           GPL-2.0+
