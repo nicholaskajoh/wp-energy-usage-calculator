@@ -40,3 +40,6 @@ None
 
 = 0.1.1 =
 * Refactored codebase for easier and faster development.
+
+= 0.1.2 =
+* Fixed total energy consumption miscalculation (Frisket77).
