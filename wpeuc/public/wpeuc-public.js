@@ -45,7 +45,7 @@
       var pr = parseFloat($('#pr_'+i).val());
       var adu = parseFloat($('#adu_'+i).val());
       var qty = parseFloat($('#qty_'+i).val());
-      var e = (pr*adu*30*qty)/1000;
+      var e = (pr*adu*qty)/1000;
       total += e;
     };
     // result; to 2 dp
